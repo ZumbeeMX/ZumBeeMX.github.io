@@ -1,0 +1,26 @@
+---
+title: "Prueba Mapa"
+author: "Ana Gámez"
+date: "19 de mayo de 2020"
+output: html_document
+---
+
+```{r librerias}
+
+library(mapview)
+library(raster)
+library(sf)
+library(rgdal)
+library(ggplot2)
+```
+
+```{r prueba1}
+ apiarios <- st_read("APIARIOS.shp")
+  ggplot(apiarios)+
+  geom_sf()
+  
+  #vista en mapa
+  
+  mapview::mapview(apiarios, labels=F)
+```
+

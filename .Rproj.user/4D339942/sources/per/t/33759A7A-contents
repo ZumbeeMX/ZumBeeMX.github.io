@@ -1,0 +1,26 @@
+---
+title: "Literatura"
+output:
+  html_document: 
+    code_folding: hide
+    toc: true
+    toc_depth: 5
+    toc_float:
+      collapsed: true
+      smooth_scroll: true
+---
+
+#**Introducción**
+
+Para este proyecto, se reunió información de distintos artículos realmente interesantes; dichos artículos serán listados a continuación se listarán.
+
+
+
+
+#**Tabla de Artículos**
+
+|                                               Artículo                                               |                                                                      Link                                                                     |  Año |
+|:----------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------:|:----:|
+| El Atlas Nacional de las Abejas y Derivados Apícolas                                                 | https://atlasapi2019.github.io/                                                                                                               | 2017 |
+| Frequency Analysis of Honey Bee Buzz for Automatic Recognition of Health Status: A Preliminary Study | https://www.rcs.cic.ipn.mx/2017_142/Frequency%20Analysis%20of%20Honey%20Bee%20Buzz%20for%20Automatic%20Recognition%20of%20Health%20Status.pdf | 2017 |
+| Mapping and Assessing Landscape Suitability for Bee Migration                                        | https://www.gislounge.com/bees-perspective-mapping-assessing-landscape-suitability-bee-migration/                                             | 2018 |

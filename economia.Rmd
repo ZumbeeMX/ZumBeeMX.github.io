@@ -1,0 +1,201 @@
+---
+title: "Economía"
+output:
+  html_document: 
+    code_folding: hide
+    toc: true
+    toc_depth: 5
+    toc_float:
+      collapsed: true
+      smooth_scroll: true
+---
+
+```{r, librerias,include=FALSE}
+library(pacman)
+library(ggplot2)
+library(plotly)
+library(gganimate)
+library(gifski)
+library(mapview)
+library(sf)
+library(rgdal)
+library(maptools)
+library(gridExtra)
+library(data.table)
+library(DT)
+datos <- read.csv("Datos/Datasets/miel.csv")
+prodMiel <- read.csv("Datos/Datasets/Prodmiel2018.csv")
+
+```
+
+
+#**Datos**
+
+A continuación, obtuvimos la información perteneciente a los estados: Sonora, Campeche, Yucatán, Chihuahua, Sinaloa y Baja California. 
+Como podemos darnos cuenta, algunos de estos lugares están alejados de Sonora, y otros colindan con este.
+
+
+```{r, datosEstados}
+
+datatable(prodMiel)
+```
+
+```{r, datos, results='hide'}
+Sonora <- t(datos[datos$Estado=="SONORA" ,])
+Sonora <- as.vector(Sonora)
+Sonora <- Sonora[3:19]
+Sonora <- as.numeric(Sonora)
+Sonora <- as.vector(Sonora)
+
+
+Campeche <- t(datos[datos$Estado=="CAMPECHE" ,])
+Campeche <- as.vector(Campeche)
+Campeche <- Campeche[3:19]
+Campeche <- as.numeric(Campeche)
+Campeche <- as.vector(Campeche)
+
+
+Yucatan <- t(datos[datos$Estado=="YUCATÁN" ,])
+Yucatan <- as.vector(Yucatan)
+Yucatan <- Yucatan[3:19]
+Yucatan <- as.numeric(Yucatan)
+Yucatan <- as.vector(Yucatan)
+
+Chihuahua <- t(datos[datos$Estado=="CHIHUAHUA" ,])
+Chihuahua <- as.vector(Chihuahua)
+Chihuahua <- Chihuahua[3:19]
+Chihuahua <- as.numeric(Chihuahua)
+Chihuahua <- as.vector(Chihuahua)
+
+Sinaloa <- t(datos[datos$Estado=="SINALOA" ,])
+Sinaloa <- as.vector(Sinaloa)
+Sinaloa <- Sinaloa[3:19]
+Sinaloa <- as.numeric(Sinaloa)
+Sinaloa <- as.vector(Sinaloa)
+
+BajaCalifornia <- t(datos[datos$Estado=="BAJA CALIFORNIA" ,])
+BajaCalifornia <- as.vector(BajaCalifornia)
+BajaCalifornia <- BajaCalifornia[3:19]
+BajaCalifornia <- as.numeric(BajaCalifornia)
+BajaCalifornia <- as.vector(BajaCalifornia)
+```
+
+
+
+
+
+###**Producción de Miel**
+
+En la siguiente gráfica podemos ver la producción de miel de Sonora y otra que va desde el años 2003 al 2019.
+```{r, produccionMiel, results='hide'}
+
+Fecha = seq(from = as.Date("2003-01-07"), to = as.Date("2019-01-07"), by = 'year')
+SonYuc <- data.frame(Fecha, Sonora, Yucatan)
+SonCamp <- data.frame(Fecha, Sonora, Campeche)
+YucCamp <- data.frame(Fecha, Yucatan, Campeche)
+SonYucCamp <- data.frame(Fecha, Sonora, Yucatan, Campeche)
+Colindantes <- data.frame(Fecha, Sonora, Sinaloa, Chihuahua, BajaCalifornia)
+
+#Grafico de producción de miel
+plot(Sonora)
+
+```
+
+
+```{r, produccionMielSonora, results='hide'}
+#Gráfico de la producción de miel en Sonora
+ggplot(data = SonCamp) + ggtitle("Producción de miel en Sonora del 2003 al 2019")+ geom_line(mapping = aes(x = Fecha, y = Sonora))
+```
+
+###**Comparaciones con los estados Campeche y Yucatán.**
+
+Para tener mayor referencia, decidimos hacer comparaciones con lugares que tienen climas distintos a Sonora, de esta manera podemos darnos cuenta de factores que probablemente estén afectando la producción de miel en el estado.
+
+```{r, sonoraCampeche, results='hide'}
+#Gráfico de producción de miel Sonora vs Campeche
+ggplot(data=SonCamp)+
+  geom_line(aes(Fecha, Sonora, colour = 'Sonora'))+
+  geom_line(aes(Fecha, Campeche, colour= 'Campeche'))+
+  xlab('Fecha')+
+  ylab('Producción')+
+  labs(colour = "Estados")+
+  ggtitle("Comparativa Sonora y Campeche Producción miel")
+
+#Comparación Sonora y Yucatán
+ggplot(data=SonYuc)+
+  geom_line(aes(Fecha,Sonora,colour='Sonora'))+
+  geom_line(aes(Fecha,Yucatan,colour='Yucatán'))+
+  xlab('Fecha')+
+  ylab('Produccion')+
+  labs(colour = "Estados")+
+  ggtitle("Comparativa Sonora y Yucatán Miel")
+```
+
+
+###**Mayores productores de miel**
+
+```{r, mayoresProductoes, results='hide'}
+#Los mayores productores de miel en promedio hacia el 2019.
+ggplot(data = YucCamp)+
+  geom_line(aes(Fecha, Yucatan, colour = 'Yucatan'))+
+  geom_line(aes(Fecha, Campeche, colour= 'Campeche'))+
+  xlab('Fecha')+
+  ylab('Producción')+
+  labs(colour = "Estados")+
+  ggtitle("Comparativa Yucatán y Campeche Producción miel")
+
+#Los mayores productores de miel en promedio hacia el 2019 en comparación con Sonora.
+ggplot(data = SonYucCamp)+
+  geom_line(aes(Fecha, Sonora, colour = 'Sonora'))+
+  geom_line(aes(Fecha, Yucatan, colour = 'Yucatan'))+
+  geom_line(aes(Fecha, Campeche, colour= 'Campeche'))+
+  xlab('Fecha')+
+  ylab('Producción')+
+  labs(colour = "Estados")+
+  ggtitle("Comparativa Yucatán y Campeche Producción miel")
+```
+
+
+```{r, ycatanCampeche, results='hide'}
+z <- ggplot(data = SonYucCamp)+
+  geom_line(aes(Fecha, Sonora, colour = 'Sonora'))+
+  geom_line(aes(Fecha, Yucatan, colour = 'Yucatan'))+
+  geom_line(aes(Fecha, Campeche, colour= 'Campeche'))+
+  xlab('Fecha')+
+  ylab('Producción')+
+  labs(colour = "Estados")+
+  ggtitle("Comparativa Yucatán y Campeche Producción miel")
+ggplotly(z)
+```
+
+###**Producción de los estados colindantes con Sonora hacia el 2019**
+
+
+```{r, produccionColindantes, results='hide'}
+
+#Producción de los estados colindantes con Sonora hacia el 2019
+ggplot(data = Colindantes)+
+  geom_line(aes(Fecha, Sonora, colour = 'Sonora'))+
+  geom_line(aes(Fecha, Chihuahua, colour = 'Chihuahua'))+
+  geom_line(aes(Fecha, BajaCalifornia, colour = 'Baja California Norte'))+
+  geom_line(aes(Fecha, Sinaloa, colour = 'Sinaloa'))+
+  xlab('Fecha')+
+  ylab('Producción')+
+  labs(colour = "Estados")+
+  ggtitle("Estados colindantes con Sonora y su producción de miel hacia el 2019")
+  transition_reveal(Fecha)
+              
+  x <- ggplot(data = Colindantes)+
+  geom_line(aes(Fecha, Sonora, colour = 'Sonora'))+
+  geom_line(aes(Fecha, Chihuahua, colour = 'Chihuahua'))+
+  geom_line(aes(Fecha, BajaCalifornia, colour = 'Baja California Norte'))+
+  geom_line(aes(Fecha, Sinaloa, colour = 'Sinaloa'))+
+  xlab('Fecha')+
+  ylab('Producción')+
+  labs(colour = "Estados")+
+  ggtitle("Estados colindantes con Sonora y su producción de miel hacia el 2019")
+  transition_reveal(Fecha)
+  
+  ggplotly(x)
+
+```

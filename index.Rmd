@@ -1,0 +1,60 @@
+---
+title: "Inicio"
+output:
+  html_document: 
+    code_folding: hide
+    toc: true
+    toc_depth: 5
+    toc_float:
+      collapsed: true
+      smooth_scroll: true
+---
+
+
+
+#**Introducción **
+
+La apicultura es sin lugar a dudas uno de los sectores primarios más importantes ya que se encarga de la producción de miel, y también la producción de abejas.Aunque no se hable mucho de ello, México es un gran productor de miel, a lo largo de los años se ha hecho notar en contraste con otros países.
+A pesar del gran potencial que tiene esta área, no se le ha tomado la atención que se merece; al contrario, se ha descuidado la vida de las abejas, dañándolas y llegando a extremos que de seguir así, podría significar la muerte de la vida como la conocemos.
+
+
+
+#**Marco Teórico** 
+
+###**Apiarios**
+
+Los apiarios es el grupo de colmenas dispuestos en determinado terreno para un apicultor. Para poder poner uno, hay que tomar en cuenta la ubicación en donde se desea instalar, así como las condiciones que tendrán las abejas para poder desarrollarse (entre más cantidad de vegetación se encuentre, mejor es la producción).
+La razón por la que es importante tomar en cuenta la ubicación es debido a que, actualmente en Latinoamérica ya se encuentran las abejas africanizadas, llegando a hacer ataques y provocando la muerte de animales e inclusive de personas. 
+
+####**principales puntos a considerar para colocar los apiarios **
+
+-	Ubicarlo cerca de un lugar donde existe abundancia de flores
+-	La orientación de la colmena será de manera que el sol dé en la piquera (es la apertura donde entran y salen las abejas) cuanto antes, haciendo que empiecen a trabajar lo más temprano posible.
+-	Evitar lugares húmedos y debe de evitarse colocar en un lugar “sucio”, es decir, que este limpio de insectos
+
+
+####**¿Qué datos usamos?**
+
+En la primer aparte del proyecto y de la investigación se utilizó datos de la fuente de Atlas API. También se obtuvo información de la primera reunión con los apicultores, en este se nos dio a conocer el proceso de producción de ellos, el cual fue que, en lugar de producir miel, se producen abejas reinas para mejorar dicha producción. También se cuenta con un sistema de producción.
+
+###**Abejas**
+
+Las abejas son insectos extremadamente sociables que viven en colonias que se establecen en forma de enjambres y estos se organizan con una jerarquía que se divide en tres partes: 
+
+- Abeja Reina.
+- Zánganos.
+- Abejas Obreras.
+
+Las abejas habitan en casi todos los continentes del mundo, exceptuando a la Antártida, además de que es uno de los insectos más antiguos que existen.
+
+#### **¿Por qué son tan importantes?** 
+
+Las abejas son los insectos polinizadores por excelencia y tienen una función esencial para el equilibrio de la naturaleza,  ya que contribuyen activamente a la supervivencia de muchas especies de plantas que se reproducen gracias al transporte de polen que llevan a cabo estos pequeños animales al alimentarse del néctar de las flores. Viven una media de cinco años y no miden más de 1,5 centímetros.
+
+#### **¿Cómo funciona su comunicación?**
+
+Como bien es sabido, las abejas trabajan con comunicación de tipo colmena, tienen una reina y todas se pueden comunicar entre sí. La abeja reina es la mamá de todas las abejas obreras, ya que ésta coloca sus huevecillos ya fecundados en la primavera entonces, como ella es la reina de la colonia, todas las abejas de esa colonia salieron de la reina, por lo que su papel es importante para la reproducción de todas las demás. La forma en la que se distingue a una abeja reina de una abeja normal es que su apariencia es diferente. Su apariencia larga es larga y delgada que se origina por el correcto desarrollo de los ovarios. Como bien es sabido, las abejas se caracterizan por su aguijón, en el caso de las abejas reina este aguijón no tiene púa.
+
+Por otro lado, existen las abejas zánganos. Estos no trabajan para la colmena, ya que por una cuestión meramente biológica, no cuentan con las herramientas para ello, así que su única función es la de fecundar a la reina y continuar con la especie.
+
+Por último, se encuentran las abejas obreras. Estas son la base de la colmena ya que son las encargadas de salir todos los días a polinizar las flores y recolectar el néctar de las mismas para producir miel. También, elaboran la papilla real que sirve de alimento para la abeja reina, son las encargadas de la limpieza de la colmena, fabrican los panales de cera y además de obreras también son guerreras, ya que defienden la vivienda contra invasores y peligros distintos.
