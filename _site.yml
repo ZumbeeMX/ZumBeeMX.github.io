@@ -5,6 +5,8 @@ navbar:
   left:
     - text: "Inicio"
       href: index.html
+    - text: "Marco Teórico"
+      href: zumbee.html
     - text: "Historia"
       href: historia.html
     - text: "Literatura"
@@ -15,8 +17,7 @@ navbar:
       href: cartografia.html
     - text: "Ecología"
       href: ecologia.html
-    - text: "ZumBee"
-      href: zumbee.html
+
 output:
   html_document:
     theme: cosmo
